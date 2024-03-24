@@ -1,3 +1,4 @@
+#Main script
 #read_data collated from social media
 patrick = read.csv('inputs/collated/dummy_patrick.csv')
 precious = read.csv('inputs/collated/dummy_precious.csv')
