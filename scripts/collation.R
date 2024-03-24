@@ -1,38 +1,42 @@
-#Main script
-#read_data collated from social media
-patrick = read.csv('inputs/collated/dummy_patrick.csv')
-precious = read.csv('inputs/collated/dummy_precious.csv')
+#-------------------------------------------------------------------------------#
+#       Preparing Social Media Data for Flood Mapping                           #
+#-------------------------------------------------------------------------------#
+
+#----   Loading necessary packages----
 library(readxl)
-#patrick <- read_excel("inputs/collated/dummy_patrick.xlsx")
-#precious <- read_excel("inputs/collated/dummy_precious.xlsx")
+library(here)
+library(tidyverse)
+#read_data collated from social media----
+kk_data <- read_excel("inputs/collated/kk_data.xlsx")
 
-#Add a column highlighting the name of the collator
 
-patrick$collator <- "patrick"
-precious$collator <- "precious"
 
-#combine the two datasets
-data <- rbind(patrick, precious)
+# Get unique non-missing values of Post_Link
 
-#remove 'web.' in the url
-data$Post_Link <- gsub('web\\.', '', data$Post_Link)
+length(unique(kk_data$Post_Text))
 
-#check duplicate URL's
+unique_Post_Text <- unique(kk_data$Post_Text)
+subset_data <- subset(kk_data, Post_Text %in% unique_Post_Text)
 
-#Count number of duplicate values 
-duplicate_count <- sum(duplicated(data$Post_Link))
-duplicate_rows <- data[duplicated(data$Post_Link), ]
-print(duplicate_rows)
-#Find unique values
-unique_data <- subset(data, !duplicated(Post_Link))
-# Convert Date column to date format
-unique_data$Date <- as.Date(unique_data$Date, format = "%d-%b-%y")
 
-# Remove rows with missing values in the Date column
-unique_data <- unique_data[complete.cases(unique_data$Date), ]
 
-# Check the structure of the modified dataframe
-str(unique_data)
+
+unique_Post_Link <- unique(kk_data$Post_Link[!is.na(kk_data$Post_Link)])
+
+# Subset the data frame kk_data based on unique Post_Link values
+unique_url <- kk_data[kk_data$Post_Link %in% unique_Post_Link, ]
+
+unique_url <- subset(kk_data, Post_Link %in% unique_Post_Link)
+
+
+
+length(duplicated(kk_data$Post_Link[!is.na(kk_data$Post_Link)]))
+
+
+
+#check posts with no URLs
+
+sum(is.na(kk_data$Post_Link))
 
 
 
@@ -119,7 +123,6 @@ unique_data$drr_stage <- random_stages
 
 #-----------------------------------------------------------------------------------------------#
 
-# Assuming your dataframe is named unique_data
 # First, let's create a vector of random drr_stage values
 drr_stages <- c("warning", "disaster", "response", "relief", "recovery")
 random_stages <- sample(drr_stages, nrow(unique_data), replace = TRUE)
