@@ -48,7 +48,8 @@ posts$Picturename_place <- trimws(posts$Picturename_place)
 
 unique(posts$Picturename_place)
 
-# Assign locations to each of the 37 posts
+
+# Assign locations to each of the 36 posts
 
 
 
