@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="chauma" id="chauma">
+	<SimpleField name="fid" type="float"></SimpleField>
+	<SimpleField name="X" type="float"></SimpleField>
+	<SimpleField name="Y" type="float"></SimpleField>
+	<SimpleField name="District" type="string"></SimpleField>
+	<SimpleField name="EMIS_Numbe" type="float"></SimpleField>
+	<SimpleField name="School_Nam" type="string"></SimpleField>
+	<SimpleField name="X_Coordina" type="float"></SimpleField>
+	<SimpleField name="Y_Coordina" type="float"></SimpleField>
+	<SimpleField name="male_stude" type="float"></SimpleField>
+	<SimpleField name="female_stu" type="float"></SimpleField>
+	<SimpleField name="Type" type="string"></SimpleField>
+	<SimpleField name="Long" type="float"></SimpleField>
+	<SimpleField name="Lat" type="float"></SimpleField>
+	<SimpleField name="No_of_Teac" type="float"></SimpleField>
+	<SimpleField name="geoWSM" type="float"></SimpleField>
+</Schema>
+<Folder><name>chauma</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#chauma">
+		<SimpleData name="fid">3886</SimpleData>
+		<SimpleData name="X">619888.667648</SimpleData>
+		<SimpleData name="Y">8629714.930843</SimpleData>
+		<SimpleData name="District">Nkhotakota</SimpleData>
+		<SimpleData name="EMIS_Numbe">500170</SimpleData>
+		<SimpleData name="School_Nam">Chauma School</SimpleData>
+		<SimpleData name="X_Coordina">619888.667644</SimpleData>
+		<SimpleData name="Y_Coordina">8629714.931</SimpleData>
+		<SimpleData name="male_stude">79</SimpleData>
+		<SimpleData name="female_stu">89</SimpleData>
+		<SimpleData name="Type">Primary school</SimpleData>
+		<SimpleData name="Long">34.1029</SimpleData>
+		<SimpleData name="Lat">-12.3959</SimpleData>
+		<SimpleData name="No_of_Teac">0</SimpleData>
+		<SimpleData name="geoWSM">5.0504</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>34.1026942724271,-12.3957358757988</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>
