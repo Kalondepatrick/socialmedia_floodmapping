@@ -9,9 +9,9 @@ disaster = read.csv('inputs/collated/final_full.csv')
 
 #Subset those with the phrase 'disaster'
 
-disaster_subset <- filter(disaster, grepl("disaster", DRR, ignore.case = TRUE))
+#disaster_subset <- filter(disaster, grepl("disaster", DRR, ignore.case = TRUE))
 
-write.csv(disaster_subset, 'inputs/collated/final_disaster.csv')
+#write.csv(disaster_subset, 'inputs/collated/final_disaster.csv')
 
 #Potential posts to be mapped----
 
@@ -27,22 +27,22 @@ posts = read.csv('outputs/tobemapped.csv')
 
 video_counter <- 1
 
-# Iterate over the rows
-for (i in 1:nrow(posts)) {
+## Iterate over the rows
+#for (i in 1:nrow(posts)) {
   # Check if the 'Picturename_place' is 'video'
-  if (posts$Picturename_place[i] == "video") {
+ # if (posts$Picturename_place[i] == "video") {
     # Add a number to 'video' and update the value in the dataframe
-    posts$Picturename_place[i] <- paste0("video", video_counter)
+  #  posts$Picturename_place[i] <- paste0("video", video_counter)
     # Increment the counter for the next video post
-    video_counter <- video_counter + 1
-  }
-}
+   # video_counter <- video_counter + 1
+  #}
+#}
 
 
 
 # Multiple pictures on one posts, split them
 
-
+#Drop videos 
 posts <- separate_rows(posts, Picturename_place, sep = ";")
 posts$Picturename_place <- trimws(posts$Picturename_place)
 
@@ -50,16 +50,6 @@ unique(posts$Picturename_place)
 
 
 # Assign locations to each of the 36 posts
-
-
-
-
-
-
-
-
-
-
 
 
 
