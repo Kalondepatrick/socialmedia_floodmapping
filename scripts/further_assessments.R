@@ -7,6 +7,8 @@ library(tidyr)
 
 disaster = read.csv('inputs/collated/final_full.csv')
 
+#How mant 
+
 #Subset those with the phrase 'disaster'
 
 #disaster_subset <- filter(disaster, grepl("disaster", DRR, ignore.case = TRUE))
